@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Open Weather Map API Demo</h1>
       </header>
-      <WeatherCard></WeatherCard>
+      <WeatherCard />
     </div>
   );
 }
