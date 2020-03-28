@@ -23,13 +23,10 @@ function DateTime(props) {
       minutes: newDate.getMinutes(),
       seconds: newDate.getSeconds()
     });
-
-    console.log('once');
-    
   }, [props.dt]);
 
   return (
-  <span>{props.dt} | {date.date} | {date.month } | {date.year} | {date.hours}:{date.minutes}</span>
+  <span>{date.date} | {date.month } | {date.year} | {date.hours}:{date.minutes}</span>
   );
 }
 
