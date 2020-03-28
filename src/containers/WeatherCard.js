@@ -37,7 +37,7 @@ function WeatherCard() {
       <h2>{ data?.city?.name }</h2>
       <div className="weather-card">
         <div className="weather-card-header">
-          { data?.list[currentWeather].weather.map(data => data.icon) }
+          {/* { data?.list[currentWeather].weather.map(data => data.icon) } */}
           <br/>
           <strong>{ data?.list ? <DateTime dt={data.list[currentWeather].dt} /> : null }</strong>
         </div>
