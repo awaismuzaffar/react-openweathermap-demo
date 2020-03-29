@@ -40,7 +40,7 @@ function WeatherContainer() {
     <div className="container">
       <h2>{ data?.city?.name }</h2>
       <button onClick={ () => setShowCelsius(!showCelsius)}>
-        { LABEL_TOGGLE_TO } { showCelsius ? LABEL_CELSIUS : LABEL_FARENHEIGHT }
+        { LABEL_TOGGLE_TO } { showCelsius ? LABEL_FARENHEIGHT : LABEL_CELSIUS }
       </button>
       <WeatherCard 
         details={data?.list[currentWeather]} 
