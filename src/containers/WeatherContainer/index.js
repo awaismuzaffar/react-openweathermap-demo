@@ -22,7 +22,12 @@ function WeatherContainer() {
 
   function getWeather() {
     fetch(API_URL)
-      .then(response => response.json())
+      .then(response => {
+        if(response.status !== 200) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
       .then(data => {
         dispatch({type: 'GET_WEATHER_SUCCESS', payload: data});
       })
@@ -56,23 +61,29 @@ function WeatherContainer() {
 
   return (
     <div className="container">
-      <h2>{weather.data?.city?.name}</h2>
-      <button onClick={() => toggleCelsius()}>
-        { LABEL_TOGGLE_TO } { settings.isCelsius ? LABEL_FARENHEIGHT : LABEL_CELSIUS }
-      </button>
-      <WeatherCard 
-        details={weather.data?.list[currentWeather]}
-      />
-      <button 
-        className="navigate-weather" 
-        onClick={ goBack }>
-          { LABEL_MINUS_3_HRS }.
-        </button>
-      <button 
-        className="navigate-weather" 
-        onClick={ goForward }>
-          { LABEL_PLUS_3_HRS }
-      </button>
+      {weather.isFetching ? (
+        <p>Fetching...</p>
+      ) : (
+        <div>
+          <h2>{weather.data?.city.name}</h2>
+          <button onClick={() => toggleCelsius()}>
+            {LABEL_TOGGLE_TO} {settings.isCelsius ? LABEL_FARENHEIGHT : LABEL_CELSIUS}
+          </button>
+          <WeatherCard 
+            details={weather.data?.list[currentWeather]}
+          />
+          <button 
+            className="navigate-weather" 
+            onClick={goBack}>
+              {LABEL_MINUS_3_HRS}.
+            </button>
+          <button 
+            className="navigate-weather" 
+            onClick={goForward}>
+              {LABEL_PLUS_3_HRS}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
