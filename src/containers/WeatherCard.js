@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DateTime from '../components/Datetime';
+import ShowDateTime from '../components/ShowDateTime';
 import WeatherDetailsTable from '../components/WeatherDetailsTable';
 import './WeatherCard.css';
 
@@ -35,11 +35,13 @@ function WeatherCard() {
 
   return (
     <div className="container">
+      <h2>{ data?.city?.name }</h2>
       <button onClick={() => setShowCelsius(!showCelsius)}>Toggle to { showCelsius ? <span>&#8457;</span> : <span>&#8451;</span> }</button>
+      
       <div className="weather-card">
         <div className="weather-card-header">
-          <h2>{ data?.city?.name }</h2>
-          <strong>{ data?.list ? <DateTime dt={data.list[currentWeather].dt} /> : null }</strong>
+          
+          <strong>{ data?.list ? <ShowDateTime dt={data.list[currentWeather].dt} /> : null }</strong>
         </div>
         <WeatherDetailsTable details={data?.list[currentWeather].main} showCelsius={showCelsius} />
       </div>

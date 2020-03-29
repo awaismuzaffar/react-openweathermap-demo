@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment';
 
-function DateTime(props) {
+function ShowDateTime(props) {
 
   const [date, setDate] = useState('');
 
@@ -9,10 +9,10 @@ function DateTime(props) {
 
     const newDate = new Date(props.dt * 1000);
 
-    setDate(moment(newDate).format('MMMM Do YYYY, h:mm:a'));
+    setDate(moment(newDate).format('MMMM Do YYYY, h:mma'));
   }, [props.dt]);
   
   return date;
 }
 
-export default DateTime;
+export default ShowDateTime;

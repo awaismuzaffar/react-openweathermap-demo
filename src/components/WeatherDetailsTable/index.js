@@ -2,8 +2,8 @@ import React from 'react';
 import ConvertTemp from '../ConvertTemp';
 
 function WeatherDetailsTable(props) {
- 
-return (
+  
+  return (
     <table>
       <tbody>
         <tr>
