@@ -18,7 +18,7 @@ function WeatherContainer() {
   const [currentWeather, setCurrentWeather] = useState(0);
 
   const dispatch = useDispatch();
-  const isCelsius = useSelector(state => state.isCelsius);
+  const isCelsius = useSelector(state => state.settings.isCelsius);
 
   useEffect(() => {
     fetch(API_URL)

@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { LABEL_CELSIUS, LABEL_FARENHEIGHT } from '../../constants';
-
 import {useSelector} from 'react-redux';
+import {LABEL_CELSIUS, LABEL_FARENHEIGHT} from '../../constants';
 
 function ConvertTemp(props) {
 
-  const [temp, setTemp] = useState({ c: null, f: null });
+  const [temp, setTemp] = useState({c: null, f: null});
 
-  const isCelsius = useSelector(state => state.isCelsius);
+  const isCelsius = useSelector(state => state.settings.isCelsius);
 
   function toCelsius(k) {
 
@@ -30,7 +29,7 @@ function ConvertTemp(props) {
     })
   }, [props.kelvin]);
   
-  return isCelsius ? <span>{ temp.c }{ LABEL_CELSIUS }</span> : <span>{ temp.f }{ LABEL_FARENHEIGHT }</span>;
+  return isCelsius ? <span>{temp.c}{LABEL_CELSIUS}</span> : <span>{temp.f}{LABEL_FARENHEIGHT}</span>;
 }
 
 export default ConvertTemp;
