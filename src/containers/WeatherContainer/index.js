@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ShowDateTime from '../components/ShowDateTime';
-import WeatherDetailsTable from '../components/WeatherDetailsTable';
-import './WeatherCard.css';
 
-function WeatherCard() {
+import WeatherCard from '../../components/WeatherCard';
+import './style.css';
+
+function WeatherContainer() {
 
   const [data, setData] = useState(null); // put this in redux store
   const [currentWeather, setCurrentWeather] = useState(0);
@@ -37,18 +37,11 @@ function WeatherCard() {
     <div className="container">
       <h2>{ data?.city?.name }</h2>
       <button onClick={() => setShowCelsius(!showCelsius)}>Toggle to { showCelsius ? <span>&#8457;</span> : <span>&#8451;</span> }</button>
-      
-      <div className="weather-card">
-        <div className="weather-card-header">
-          
-          <strong>{ data?.list ? <ShowDateTime dt={data.list[currentWeather].dt} /> : null }</strong>
-        </div>
-        <WeatherDetailsTable details={data?.list[currentWeather].main} showCelsius={showCelsius} />
-      </div>
+      <WeatherCard details={data?.list[currentWeather]} showCelsius={showCelsius} />
       <button className="navigate-weather" onClick={goBack}>-3 Hours.</button>
       <button className="navigate-weather" onClick={goForward}>+3 Hours.</button>
     </div>
   );
 }
 
-export default WeatherCard;
+export default WeatherContainer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import WeatherCard from './containers/WeatherCard';
+import WeatherContainer from './containers/WeatherContainer';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Open Weather Map API Demo</h1>
       </header>
-      <WeatherCard />
+      <WeatherContainer />
     </div>
   );
 }
