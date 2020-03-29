@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import WeatherCard from '../../components/WeatherCard';
+import Loader from '../../components/Loader';
 import { 
   API_URL, 
   LABEL_MINUS_3_HRS, 
   LABEL_PLUS_3_HRS, 
   LABEL_TOGGLE_TO, 
   LABEL_CELSIUS, 
-  LABEL_FARENHEIGHT 
+  LABEL_FARENHEIGHT,
+  LABEL_ERROR_MSG
 } from '../../constants';
 import './style.css';
 
@@ -20,7 +22,7 @@ function WeatherContainer() {
 
   const [currentWeather, setCurrentWeather] = useState(0);
 
-  function getWeather() {
+  const getWeather = () => {
     fetch(API_URL)
       .then(response => {
         if(response.status !== 200) {
@@ -37,34 +39,33 @@ function WeatherContainer() {
     dispatch({type: 'GET_WEATHER'});
   }
 
-  function goBack() {
+  const goBack = () => {
     if (currentWeather === 0) {
       return;
     }
     setCurrentWeather(currentWeather - 1);
   }
 
-  function goForward() {
+  const goForward = () => {
     if (currentWeather === (weather.data.list.length - 1)) {
       return;
     }
     setCurrentWeather(currentWeather + 1);
   }
 
-  function toggleCelsius() {
+  const toggleCelsius = () => {
     dispatch({type: 'TOGGLE_CELSIUS'});
   }
 
-  useEffect(() => {
-    getWeather();
-  }, []);
+  useEffect(getWeather, []);
 
   return (
     <div className="container">
       {weather.isFetching ? (
-        <p>Fetching...</p>
+        <Loader />
       ) : (
         <div>
+          {weather.isFailed ? <p>{LABEL_ERROR_MSG}</p> : null}
           <h2>{weather.data?.city.name}</h2>
           <button onClick={() => toggleCelsius()}>
             {LABEL_TOGGLE_TO} {settings.isCelsius ? LABEL_FARENHEIGHT : LABEL_CELSIUS}

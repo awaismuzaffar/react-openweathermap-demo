@@ -19,6 +19,8 @@ export const LABEL_PLUS_3_HRS = '+3 Hours.'
 
 export const LABEL_TOGGLE_TO = 'Toggle to';
 
+export const LABEL_ERROR_MSG = 'Something went wrong.'
+
 export const LABEL_PERCENTAGE = '\u0025';
 
 export const LABEL_CELSIUS = '\u2103';

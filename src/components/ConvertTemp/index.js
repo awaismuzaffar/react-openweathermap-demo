@@ -8,14 +8,14 @@ function ConvertTemp(props) {
 
   const isCelsius = useSelector(state => state.settings.isCelsius);
 
-  function toCelsius(k) {
+  const toCelsius = (k) => {
 
     const converted = k - 273.15;
 
     return (Math.round(converted * 10) / 10);
   }
 
-  function toFarenheight(k) {
+  const toFarenheight = (k) => {
 
     const converted = ((k - 273.15) * 1.8) + 32;
 
@@ -26,7 +26,7 @@ function ConvertTemp(props) {
     setTemp({
       c: toCelsius(props.kelvin),
       f: toFarenheight(props.kelvin)
-    })
+    });
   }, [props.kelvin]);
   
   return isCelsius ? <span>{temp.c}{LABEL_CELSIUS}</span> : <span>{temp.f}{LABEL_FARENHEIGHT}</span>;
