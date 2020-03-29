@@ -1,5 +1,5 @@
 import React from 'react';
-import ConvertTemp from '../ConvertTemp';
+import ConvertTemp from '../../containers/ConvertTemp';
 import ShowDateTime from '../ShowDateTime';
 import * as Constants from '../../constants';
 
