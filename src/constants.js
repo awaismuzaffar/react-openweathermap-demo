@@ -1,4 +1,5 @@
-export const API_URL = 'http://api.openweathermap.org/data/2.5/forecast?q=london&appid=2ef90d11851b97b88140a0c75dfed4dc';
+//export const API_URL = 'http://api.openweathermap.org/data/2.5/forecast?q=london&appid=2ef90d11851b97b88140a0c75dfed4dc';
+export const API_URL = 'data.json';
 
 export const APP_HEADING = 'Open Weather Map API Demo';
 
