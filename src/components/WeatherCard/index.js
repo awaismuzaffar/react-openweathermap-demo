@@ -6,10 +6,10 @@ import * as Constants from '../../constants';
 function WeatherCard(props) {
   return (
     <div className="weather-card">
-      <div class="weather-card-header">
+      <div className="weather-card-header">
         <strong><ShowDateTime dt={props.details?.dt} /></strong>
       </div>
-      <div class="weather-card-body">
+      <div className="weather-card-body">
         <table>
           <tbody>
             <tr>
@@ -25,9 +25,9 @@ function WeatherCard(props) {
               <td><ConvertTemp kelvin={ props.details?.main.temp_min } showCelsius={props.showCelsius} /></td>
               <td><ConvertTemp kelvin={ props.details?.main.temp_max } showCelsius={props.showCelsius} /></td>
               <td><ConvertTemp kelvin={ props.details?.main.temp } showCelsius={props.showCelsius} /></td>
-              <td>{ props.details?.main.pressure }<span class="small-text">{ Constants.LABEL_HPA }</span></td>
-              <td>{ props.details?.main.sea_level }<span class="small-text">{ Constants.LABEL_HPA }</span></td>
-              <td>{ props.details?.main.grnd_level }<span class="small-text">{ Constants.LABEL_HPA }</span></td>
+              <td>{ props.details?.main.pressure }<span className="small-text">{ Constants.LABEL_HPA }</span></td>
+              <td>{ props.details?.main.sea_level }<span className="small-text">{ Constants.LABEL_HPA }</span></td>
+              <td>{ props.details?.main.grnd_level }<span className="small-text">{ Constants.LABEL_HPA }</span></td>
               <td>{ props.details?.main.humidity }{ Constants.LABEL_PERCENTAGE }</td>
             </tr>
           </tbody>
