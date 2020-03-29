@@ -24,8 +24,10 @@ function WeatherContainer() {
     fetch(API_URL)
       .then(response => response.json())
       .then(data => {
-        //setData(data);
         dispatch({type: 'GET_WEATHER_SUCCESS', payload: data});
+      })
+      .catch(error => {
+        dispatch({type: 'GET_WEATHER_FAILURE'});
       });
     dispatch({type: 'GET_WEATHER'});
   }
