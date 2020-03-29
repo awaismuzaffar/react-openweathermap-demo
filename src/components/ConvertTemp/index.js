@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LABEL_CELSIUS, LABEL_FARENHEIGHT } from '../../constants';
 
 function ConvertTemp(props) {
 
@@ -25,7 +26,7 @@ function ConvertTemp(props) {
     })
   }, [props.kelvin, props.showCelsius]);
   
-return props.showCelsius ?  <span>{temp.c}&#8451;</span> : <span>{temp.f}&#8457;</span>;
+return props.showCelsius ?  <span>{temp.c}{ LABEL_CELSIUS }</span> : <span>{ temp.f }{ LABEL_FARENHEIGHT }</span>;
 }
 
 export default ConvertTemp;

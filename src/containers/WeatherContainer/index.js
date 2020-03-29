@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import WeatherCard from '../../components/WeatherCard';
 import './style.css';
-import { API_URL, LABEL_MINUS_3_HRS, LABEL_PLUS_3_HRS, LABEL_TOGGLE_TO } from '../../constants';
+import { API_URL, LABEL_MINUS_3_HRS, LABEL_PLUS_3_HRS, LABEL_TOGGLE_TO, LABEL_CELSIUS, LABEL_FARENHEIGHT } from '../../constants';
 
 function WeatherContainer() {
 
@@ -36,7 +36,7 @@ function WeatherContainer() {
   return (
     <div className="container">
       <h2>{ data?.city?.name }</h2>
-      <button onClick={() => setShowCelsius(!showCelsius)}>{ LABEL_TOGGLE_TO } { showCelsius ? <span>&#8457;</span> : <span>&#8451;</span> }</button>
+      <button onClick={() => setShowCelsius(!showCelsius)}>{ LABEL_TOGGLE_TO } { showCelsius ? LABEL_CELSIUS : LABEL_FARENHEIGHT }</button>
       <WeatherCard details={data?.list[currentWeather]} showCelsius={showCelsius} />
       <button className="navigate-weather" onClick={goBack}>{ LABEL_MINUS_3_HRS }.</button>
   <button className="navigate-weather" onClick={goForward}>{ LABEL_PLUS_3_HRS }</button>

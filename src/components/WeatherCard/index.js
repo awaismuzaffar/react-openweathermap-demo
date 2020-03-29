@@ -28,7 +28,7 @@ function WeatherCard(props) {
               <td>{ props.details?.main.pressure }<span class="small-text">{ Constants.LABEL_HPA }</span></td>
               <td>{ props.details?.main.sea_level }<span class="small-text">{ Constants.LABEL_HPA }</span></td>
               <td>{ props.details?.main.grnd_level }<span class="small-text">{ Constants.LABEL_HPA }</span></td>
-              <td>{ props.details?.main.humidity }%</td>
+              <td>{ props.details?.main.humidity }{ Constants.LABEL_PERCENTAGE }</td>
             </tr>
           </tbody>
         </table>
