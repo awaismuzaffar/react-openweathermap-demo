@@ -36,10 +36,10 @@ function WeatherContainer() {
   return (
     <div className="container">
       <h2>{ data?.city?.name }</h2>
-      <button onClick={() => setShowCelsius(!showCelsius)}>{ LABEL_TOGGLE_TO } { showCelsius ? LABEL_CELSIUS : LABEL_FARENHEIGHT }</button>
+      <button onClick={ () => setShowCelsius(!showCelsius)}>{ LABEL_TOGGLE_TO } { showCelsius ? LABEL_CELSIUS : LABEL_FARENHEIGHT }</button>
       <WeatherCard details={data?.list[currentWeather]} showCelsius={showCelsius} />
-      <button className="navigate-weather" onClick={goBack}>{ LABEL_MINUS_3_HRS }.</button>
-      <button className="navigate-weather" onClick={goForward}>{ LABEL_PLUS_3_HRS }</button>
+      <button className="navigate-weather" onClick={ goBack }>{ LABEL_MINUS_3_HRS }.</button>
+      <button className="navigate-weather" onClick={ goForward }>{ LABEL_PLUS_3_HRS }</button>
     </div>
   );
 }
