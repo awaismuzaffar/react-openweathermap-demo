@@ -14,17 +14,21 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function WeatherContainer() {
 
-  const [data, setData] = useState(null); // put this in redux store
+  const dispatch = useDispatch();
+  const settings = useSelector(state => state.settings);
+  const weather = useSelector(state => state.weather);
+
   const [currentWeather, setCurrentWeather] = useState(0);
 
-  const dispatch = useDispatch();
-  const isCelsius = useSelector(state => state.settings.isCelsius);
-
-  useEffect(() => {
+  function getWeather() {
     fetch(API_URL)
       .then(response => response.json())
-      .then(data => setData(data));
-  }, []);
+      .then(data => {
+        //setData(data);
+        dispatch({type: 'GET_WEATHER_SUCCESS', payload: data});
+      });
+    dispatch({type: 'GET_WEATHER'});
+  }
 
   function goBack() {
     if (currentWeather === 0) {
@@ -34,7 +38,7 @@ function WeatherContainer() {
   }
 
   function goForward() {
-    if (currentWeather === (data.list.length - 1)) {
+    if (currentWeather === (weather.data.list.length - 1)) {
       return;
     }
     setCurrentWeather(currentWeather + 1);
@@ -44,15 +48,18 @@ function WeatherContainer() {
     dispatch({type: 'TOGGLE_CELSIUS'});
   }
 
+  useEffect(() => {
+    getWeather();
+  }, []);
+
   return (
     <div className="container">
-      
-      <h2>{ data?.city?.name }</h2>
+      <h2>{weather.data?.city?.name}</h2>
       <button onClick={() => toggleCelsius()}>
-        { LABEL_TOGGLE_TO } { isCelsius ? LABEL_FARENHEIGHT : LABEL_CELSIUS }
+        { LABEL_TOGGLE_TO } { settings.isCelsius ? LABEL_FARENHEIGHT : LABEL_CELSIUS }
       </button>
       <WeatherCard 
-        details={data?.list[currentWeather]}
+        details={weather.data?.list[currentWeather]}
       />
       <button 
         className="navigate-weather" 

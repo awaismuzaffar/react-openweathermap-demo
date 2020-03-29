@@ -1,17 +1,17 @@
 const initialState = {
-    isCelsius: true
-  };
+  isCelsius: true
+};
   
-  function settingsReducer(state = initialState, action) {
-    switch (action.type) {
-      case 'TOGGLE_CELSIUS':
-        return {
-          ...state,
-          isCelsius: !state.isCelsius
-        }
-      default:
-        return state
-    }
+function settingsReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'TOGGLE_CELSIUS':
+      return {
+        ...state,
+        isCelsius: !state.isCelsius
+      }
+    default:
+      return state
   }
+}
   
-  export default settingsReducer;
+export default settingsReducer;
