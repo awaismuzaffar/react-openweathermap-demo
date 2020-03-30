@@ -1,17 +1,10 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from "react-dom";
 import configureMockStore from 'redux-mock-store';
-
-import { act } from "react-dom/test-utils";
 import  WeatherContainer from '.';
-import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
-import { Provider } from 'react-redux'
-
-
-//const middlewares = [thunk];
 const mockStore = configureMockStore();
-
 
 describe('WeatherContainer', () => {
   
