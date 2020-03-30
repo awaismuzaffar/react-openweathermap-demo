@@ -60,26 +60,28 @@ function WeatherContainer() {
   useEffect(getWeather, []);
 
   return (
-    <div className="container">
+    <div className="WeatherContainer">
       {weather.isFetching ? (
         <Loader />
       ) : (
         <div>
           {weather.isFailed ? <p>{LABEL_ERROR_MSG}</p> : null}
           <h2>{weather.data?.city.name}</h2>
-          <button onClick={() => toggleCelsius()}>
+          <button 
+            className="WeatherContainer-toggle"
+            onClick={() => toggleCelsius()}>
             {LABEL_TOGGLE_TO} {settings.isCelsius ? LABEL_FARENHEIGHT : LABEL_CELSIUS}
           </button>
           <WeatherCard 
             details={weather.data?.list[currentWeather]}
           />
           <button 
-            className="navigate-weather" 
+            className="WeatherContainer-navigate" 
             onClick={goBack}>
               {LABEL_MINUS_3_HRS}.
             </button>
           <button 
-            className="navigate-weather" 
+            className="WeatherContainer-navigate" 
             onClick={goForward}>
               {LABEL_PLUS_3_HRS}
           </button>

@@ -2,15 +2,16 @@ import React from 'react';
 import ConvertTemp from '../../containers/ConvertTemp';
 import ShowDateTime from '../ShowDateTime';
 import * as Constants from '../../constants';
+import './style.css';
 
 function WeatherCard(props) {
   return (
-    <div className="weather-card">
-      <div className="weather-card-header">
+    <div className="WeatherCard">
+      <div className="WeatherCard-header">
         <strong><ShowDateTime dt={props.details?.dt} /></strong>
       </div>
-      <div className="weather-card-body">
-        <table>
+      <div className="WeatherCard-body">
+        <table className="WeatherCard-table">
           <tbody>
             <tr>
               <th>{ Constants.LABEL_TEMP_MIN }</th>

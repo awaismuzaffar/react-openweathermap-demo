@@ -1,0 +1,22 @@
+.WeatherCard {
+  border: 1px solid #ccc;
+  margin: 15px auto;
+  width:700px;
+  text-align: left;
+  padding: 15px;
+}
+
+.WeatherCard-header {
+  margin-bottom: 20px;
+}
+
+.WeatherCard-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.WeatherCard-table th, .WeatherCard-table td {  
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 14.2%;
+}
