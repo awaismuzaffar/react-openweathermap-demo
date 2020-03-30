@@ -1,14 +1,14 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 import  ShowDateTime from '.';
 
-describe('ShowDateTime', () => {
+describe("ShowDateTime", () => {
   
   let container = null;
 
   beforeEach(() => {
-    container = document.createElement("div");
+    container = document.createElement('div');
     document.body.appendChild(container);
   });
   

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 const mockStore = configureMockStore();
 
-describe('WeatherContainer', () => {
+describe("WeatherContainer", () => {
   
   const initialState = {
     weather: {
