@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from "react-dom";
+import { render, unmountComponentAtNode } from 'react-dom';
 import configureMockStore from 'redux-mock-store';
 import  WeatherContainer from '.';
 import { Provider } from 'react-redux';
@@ -21,7 +21,7 @@ describe('WeatherContainer', () => {
   let store;
 
   beforeEach(() => {
-    container = document.createElement("div");
+    container = document.createElement('div');
     document.body.appendChild(container);
   });
   
