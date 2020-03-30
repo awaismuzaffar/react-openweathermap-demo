@@ -12,7 +12,7 @@ function WeatherCard(props) {
       </div>
       <div className="WeatherCard-body">
         <table className="WeatherCard-table">
-          <tbody>
+          <thead>
             <tr>
               <th>{ Constants.LABEL_TEMP_MIN }</th>
               <th>{ Constants.LABEL_TEMP_MAX }</th>
@@ -22,6 +22,8 @@ function WeatherCard(props) {
               <th>{ Constants.LABEL_GRND_LEVEL }</th>
               <th>{ Constants.LABEL_HUMIDITY }</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
               <td><ConvertTemp kelvin={ props.details?.main.temp_min } showCelsius={props.showCelsius} /></td>
               <td><ConvertTemp kelvin={ props.details?.main.temp_max } showCelsius={props.showCelsius} /></td>

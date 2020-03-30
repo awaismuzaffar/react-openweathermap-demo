@@ -1,7 +1,7 @@
 .WeatherCard {
   border: 1px solid #ccc;
   margin: 15px auto;
-  width:700px;
+  max-width: 640px;
   text-align: left;
   padding: 15px;
 }
@@ -15,8 +15,42 @@
   width: 100%;
 }
 
-.WeatherCard-table th, .WeatherCard-table td {  
+.WeatherCard-table th, .WeatherCard-table tbody td {  
   border: 1px solid #ccc;
   padding: 5px;
   width: 14.2%;
 }
+
+@media screen and (max-width: 639px) {
+
+  .WeatherCard-table {
+    width:100%;
+  }
+
+  .WeatherCard-table thead {
+    display: none;
+  }
+
+  .WeatherCard-table thead th {
+    border: 0;
+  }
+
+  .WeatherCard-table tbody td {
+    display: block; border: 0;
+  }
+
+  .WeatherCard-table tbody td:before { 
+    content: attr(data-th); 
+    display: block;
+  }
+
+  .WeatherCard-table tbody td::before {
+    content: attr(data-th);
+    display: none;
+  }
+}
+
+
+
+
+  
