@@ -8,15 +8,6 @@ const mockStore = configureMockStore();
 
 describe("WeatherContainer", () => {
   
-  const initialState = {
-    weather: {
-      isFetching: false
-    },
-    settings: {
-      isCelsius: true
-    }
-  };
-
   let container = null;
   let store;
 
@@ -31,8 +22,21 @@ describe("WeatherContainer", () => {
     container = null;
   });
   
-  it("renders", () => {
-    store = mockStore(initialState)
-    render(<Provider store={store}><WeatherContainer /></Provider>, container);
+  describe("while fetching", () => {
+
+    beforeEach(() => {
+      store = mockStore({
+        weather: {
+          isFetching: true
+        }
+      });
+    });
+    
+    it("should show the fetching message", () => {
+      
+      render(<Provider store={store}><WeatherContainer /></Provider>, container);
+
+      expect(container.textContent).toBe('Fetching...');
+    });
   });
 });
