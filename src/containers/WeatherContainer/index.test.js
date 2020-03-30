@@ -8,8 +8,6 @@ const mockStore = configureMockStore();
 
 describe('WeatherContainer', () => {
   
-  let container = null;
-  let store;
   const initialState = {
     weather: {
       isFetching: false
@@ -18,6 +16,9 @@ describe('WeatherContainer', () => {
       isCelsius: true
     }
   };
+
+  let container = null;
+  let store;
 
   beforeEach(() => {
     container = document.createElement("div");
