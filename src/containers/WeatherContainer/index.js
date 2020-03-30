@@ -10,17 +10,24 @@ import {
   LABEL_FARENHEIGHT,
   LABEL_ERROR_MSG
 } from '../../constants';
+import {
+  GET_WEATHER,
+  GET_WEATHER_SUCCESS,
+  GET_WEATHER_FAILURE
+} from '../../actions/weatherActionTypes';
+import {
+  TOGGLE_CELSIUS
+} from '../../actions/settingsActionTypes';
 import './style.css';
 
 import {useDispatch, useSelector} from 'react-redux';
 
 function WeatherContainer() {
-
-  const dispatch = useDispatch();
+  
+  const [currentWeather, setCurrentWeather] = useState(0);
   const settings = useSelector(state => state.settings);
   const weather = useSelector(state => state.weather);
-
-  const [currentWeather, setCurrentWeather] = useState(0);
+  const dispatch = useDispatch();
 
   const getWeather = () => {
     fetch(API_URL)
@@ -31,12 +38,12 @@ function WeatherContainer() {
         return response.json();
       })
       .then(data => {
-        dispatch({type: 'GET_WEATHER_SUCCESS', payload: data});
+        dispatch({type: GET_WEATHER_SUCCESS, payload: data});
       })
       .catch(error => {
-        dispatch({type: 'GET_WEATHER_FAILURE'});
+        dispatch({type: GET_WEATHER_FAILURE});
       });
-    dispatch({type: 'GET_WEATHER'});
+    dispatch({type: GET_WEATHER});
   }
 
   const goBack = () => {
@@ -54,7 +61,7 @@ function WeatherContainer() {
   }
 
   const toggleCelsius = () => {
-    dispatch({type: 'TOGGLE_CELSIUS'});
+    dispatch({type: TOGGLE_CELSIUS});
   }
 
   useEffect(getWeather, []);
